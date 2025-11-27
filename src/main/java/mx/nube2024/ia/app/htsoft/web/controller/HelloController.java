@@ -1,6 +1,7 @@
-package mx.nube2024.ia.app.htsoft;
+package mx.nube2024.ia.app.htsoft.web.controller;
 
 
+import mx.nube2024.ia.app.htsoft.htsoftAIService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
