@@ -1,4 +1,4 @@
-package mx.nube2024.ia.app.htsoft;
+package mx.nube2024.ia.app.htsoft.domain.service;
 
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
