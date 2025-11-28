@@ -1,7 +1,5 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
-
-
-import mx.nube2024.ia.app.htsoft.htsoftAIService;
+import mx.nube2024.ia.app.htsoft.domain.service.htsoftAIService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +16,7 @@ public class HelloController
         this.platform = platform;
     }
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String hello()
     {
         return this.aiService.generatedGreeting(this.platform);
