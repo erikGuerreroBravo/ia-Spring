@@ -1,8 +1,13 @@
 package mx.nube2024.ia.app.htsoft.persistence.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="peliculas")
 public class MovieEntity {
 
     private String titulo;
