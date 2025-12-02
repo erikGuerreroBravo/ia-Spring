@@ -9,16 +9,31 @@ import java.time.LocalDate;
 @Entity
 @Table(name="peliculas")
 public class MovieEntity {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 150, unique = true)
     private String titulo;
+    //la presicion se refiere a un numero maximo de 3 caracteres.
+    @Column(nullable = false,precision = 3)
     private Integer duracion;
+    @Column(nullable = false,length = 40)
     private String genero;
+    @Column(nullable = false)
     private LocalDate fechaEstreno;
     private BigDecimal clasificacion;
     private String estado;
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getTitulo() {
         return titulo;
     }
