@@ -5,6 +5,8 @@ import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface MovieMapper {
     @Mapping(source="titulo", target="title")
@@ -13,4 +15,5 @@ public interface MovieMapper {
     @Mapping(source="fechaEstreno", target="releaseDate")
     @Mapping(source="clasificacion", target="rating")
     MovieDto toDto(MovieEntity entity);
+    List<MovieDto> toDo(Iterable<MovieEntity> entities);
 }
