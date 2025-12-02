@@ -1,7 +1,7 @@
 package mx.nube2024.ia.app.htsoft.persistence.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerators;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,7 +9,9 @@ import java.time.LocalDate;
 @Entity
 @Table(name="peliculas")
 public class MovieEntity {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String titulo;
     private Integer duracion;
     private String genero;
