@@ -1,7 +1,7 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
-import mx.nube2024.ia.app.htsoft.persistence.crud.CrudMovieEntity;
-import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
+import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,16 +10,16 @@ import java.util.List;
 @RestController
 public class MovieController {
 
-    private final CrudMovieEntity crudMovieEntity;
+    private final MovieService movieService;
 
-    public MovieController(CrudMovieEntity crudMovieEntity) {
-        this.crudMovieEntity = crudMovieEntity;
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
     }
 
     @GetMapping("/movies")
-    public List<MovieEntity> getAll()
+    public List<MovieDto> getAll()
     {
         //casteamos el resultado al tipo de objeto que se necesita transformar
-        return (List<MovieEntity>) this.crudMovieEntity.findAll();
+        return  this.movieService.getAll();
     }
 }
