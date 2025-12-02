@@ -21,11 +21,13 @@ public class MovieEntity {
     private Integer duracion;
     @Column(nullable = false,length = 40)
     private String genero;
-    @Column(nullable = false)
+    @Column(name = "fecha_estreno")
     private LocalDate fechaEstreno;
+    //tres caracteres maximo dos decimales
+    @Column(precision = 3,scale = 2)
     private BigDecimal clasificacion;
+    @Column(nullable = false,precision = 1)
     private String estado;
-
 
     public Long getId() {
         return id;
