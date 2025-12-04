@@ -7,6 +7,7 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
+//los mapeadores siempre seran del tipo interface
 @Mapper(componentModel = "spring")
 public interface MovieMapper {
     @Mapping(source="titulo", target="title")
