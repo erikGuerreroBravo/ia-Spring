@@ -5,16 +5,15 @@ import org.mapstruct.Named;
 @Named("StringToGenero")
 public class GeneroMapper {
     public static Genero stringToGenere(String genero){
-        if(genero == null){
-            return null;
-        }
-        return switch (genero.toUpperCase()){
-            case "ACCION" -> genero.ACTION;
-            case "COMEDIA" -> genero.COMEDY;
-            case "DRAMA" -> genero.DRAMA;
-            case  "ANIMADA" -> genero.ANIMATED;
-            case "TERROR" ->genero.HORROR;
-            case "CIENCIA_FICCION" -> genero.SCI_FI;
+        if (genero == null) return null;
+
+        return switch (genero.toUpperCase()) {
+            case "ACCION" -> Genero.ACTION;
+            case "COMEDIA" -> Genero.COMEDY;
+            case "DRAMA" -> Genero.DRAMA;
+            case "ANIMADA" -> Genero.ANIMATED;
+            case "TERROR" -> Genero.HORROR;
+            case "CIENCIA_FICCION" -> Genero.SCI_FI;
             default -> null;
         };
     }
