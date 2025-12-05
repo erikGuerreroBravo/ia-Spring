@@ -1,6 +1,6 @@
 package mx.nube2024.ia.app.htsoft.domain;
 
-public enum Genre {
+public enum Genero {
     ACTION,
     COMEDY,
     DRAMA,
