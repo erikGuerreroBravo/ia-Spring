@@ -3,6 +3,7 @@ package mx.nube2024.ia.app.htsoft.web.controller;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,5 +22,9 @@ public class MovieController {
     {
         //casteamos el resultado al tipo de objeto que se necesita transformar
         return  this.movieService.getAll();
+    }
+    @GetMapping("/movies/{id}")
+    public MovieDto getById(@PathVariable Long id){
+        return null;
     }
 }
