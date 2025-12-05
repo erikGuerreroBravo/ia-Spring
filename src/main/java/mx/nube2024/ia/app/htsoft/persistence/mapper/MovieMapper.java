@@ -12,7 +12,7 @@ import java.util.List;
 public interface MovieMapper {
     @Mapping(source="titulo", target="title")
     @Mapping(source="duracion", target="duration")
-    @Mapping(source="genero", target="genere")
+    @Mapping(source="genero", target="genere", qualifiedByName = "StringToGenero")
     @Mapping(source="fechaEstreno", target="releaseDate")
     @Mapping(source="clasificacion", target="rating")
     MovieDto toDto(MovieEntity entity);
