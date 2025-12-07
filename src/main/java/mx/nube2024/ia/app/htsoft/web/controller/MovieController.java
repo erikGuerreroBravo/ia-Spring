@@ -2,6 +2,7 @@ package mx.nube2024.ia.app.htsoft.web.controller;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +27,12 @@ public class MovieController {
         return  this.movieService.getAll();
     }
     @GetMapping("/{id}")
-    public MovieDto getById(@PathVariable Long id){
-        return this.movieService.getById(id);
+    public ResponseEntity<MovieDto> getById(@PathVariable Long id){
+        MovieDto movieDto= this.movieService.getById(id);
+        if(movieDto == null)
+        {
+            return  ResponseEntity.notFound().build();
+        }
+        return  ResponseEntity.ok(movieDto);
     }
 }
