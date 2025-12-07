@@ -3,6 +3,7 @@ package mx.nube2024.ia.app.htsoft.persistence;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.repository.MovieRepository;
 import mx.nube2024.ia.app.htsoft.persistence.crud.CrudMovieEntity;
+import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
 import mx.nube2024.ia.app.htsoft.persistence.mapper.MovieMapper;
 import org.springframework.stereotype.Repository;
 
@@ -24,5 +25,11 @@ public class MovieEntityRepository implements MovieRepository {
     @Override
     public List<MovieDto> getAll() {
         return this.movieMapper.toDo(this.crudMovieEntity.findAll());
+    }
+
+    @Override
+    public MovieDto getById(Long id) {
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
+        return this.movieMapper.toDto(movieEntity);
     }
 }
