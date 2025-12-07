@@ -21,10 +21,11 @@ public class MovieController {
     }
 
     @GetMapping
-    public List<MovieDto> getAll()
+    public ResponseEntity<List<MovieDto>> getAll()
     {
         //casteamos el resultado al tipo de objeto que se necesita transformar
-        return  this.movieService.getAll();
+        List<MovieDto> movies= this.movieService.getAll();
+        return ResponseEntity.ok(movies);
     }
     @GetMapping("/{id}")
     public ResponseEntity<MovieDto> getById(@PathVariable Long id){
