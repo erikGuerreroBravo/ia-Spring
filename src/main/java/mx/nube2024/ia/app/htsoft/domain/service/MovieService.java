@@ -17,6 +17,12 @@ public class MovieService {
     {
         return this.movieRepository.getAll();
     }
-
+    /**
+     * Este metoodo se encarga de consultar un MovieDto por Identificador
+     * */
+    public MovieDto  getById(Long id)
+    {
+        return this.movieRepository.getById(id);
+    }
 
 }
