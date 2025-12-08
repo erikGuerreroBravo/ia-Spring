@@ -3,10 +3,7 @@ package mx.nube2024.ia.app.htsoft.web.controller;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,10 @@ public class MovieController {
             return  ResponseEntity.notFound().build();
         }
         return  ResponseEntity.ok(movieDto);
+    }
+    @PostMapping
+    public ResponseEntity<MovieDto> add(@RequestBody MovieDto movieDto)
+    {
+
     }
 }
