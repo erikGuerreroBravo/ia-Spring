@@ -24,7 +24,7 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public List<MovieDto> getAll() {
-        return this.movieMapper.toDo(this.crudMovieEntity.findAll());
+        return this.movieMapper.toDto(this.crudMovieEntity.findAll());
     }
 
     @Override
@@ -36,6 +36,8 @@ public class MovieEntityRepository implements MovieRepository {
     @Override
     public MovieDto save(MovieDto movieDto) {
         MovieEntity movieEntity = this.movieMapper.toEntity(movieDto);
-        return null;
+        //asignamos el estado de forma manual.
+        movieEntity.setEstado("D");
+        return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
     }
 }

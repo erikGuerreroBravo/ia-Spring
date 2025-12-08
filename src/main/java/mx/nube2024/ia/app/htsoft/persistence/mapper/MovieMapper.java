@@ -17,7 +17,7 @@ public interface MovieMapper {
     @Mapping(source="fechaEstreno", target="releaseDate")
     @Mapping(source="clasificacion", target="rating")
     MovieDto toDto(MovieEntity entity);
-    List<MovieDto> toDo(Iterable<MovieEntity> entities);
+    List<MovieDto> toDto(Iterable<MovieEntity> entities);
 
     //se aplica esta notacion para heredar todos los atriutos mostrados en la configuracion
     //del mapstruct excepto  genero por que aqui se utiliza un enum.
