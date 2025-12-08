@@ -17,4 +17,6 @@ public interface MovieMapper {
     @Mapping(source="clasificacion", target="rating")
     MovieDto toDto(MovieEntity entity);
     List<MovieDto> toDo(Iterable<MovieEntity> entities);
+
+    MovieEntity toEntity(MovieDto dto);
 }
