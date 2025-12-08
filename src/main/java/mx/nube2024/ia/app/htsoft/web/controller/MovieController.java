@@ -2,6 +2,7 @@ package mx.nube2024.ia.app.htsoft.web.controller;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ public class MovieController {
     @PostMapping
     public ResponseEntity<MovieDto> add(@RequestBody MovieDto movieDto)
     {
-
+        /*el cuerpo de la respuesta es lo que regrese el movieService*/
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.movieService.add(movieDto));
     }
 }
