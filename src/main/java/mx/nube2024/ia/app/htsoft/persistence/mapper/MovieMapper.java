@@ -22,5 +22,6 @@ public interface MovieMapper {
     //se aplica esta notacion para heredar todos los atriutos mostrados en la configuracion
     //del mapstruct excepto  genero por que aqui se utiliza un enum.
     @InheritInverseConfiguration
+    @Mapping(source = "genere", target = "genero", qualifiedByName = "GeneroToString")
     MovieEntity toEntity(MovieDto dto);
 }
