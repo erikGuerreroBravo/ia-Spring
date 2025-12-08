@@ -35,7 +35,7 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public MovieDto save(MovieDto movieDto) {
-
+        MovieEntity movieEntity = this.movieMapper.toEntity(movieDto);
         return null;
     }
 }
