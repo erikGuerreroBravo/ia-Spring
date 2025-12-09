@@ -26,5 +26,8 @@ public interface MovieMapper {
     @InheritInverseConfiguration
     @Mapping(source = "genere", target = "genero", qualifiedByName = "GeneroToString")
     MovieEntity toEntity(MovieDto dto);
+   @Mapping(target = "titulo" ,source = "title")
+   @Mapping(target="fechaEstreno", source = "releaseDate")
+   @Mapping(target="clasificacion",source = "rating")
     void updateEntityFromDto(UpdateMovieDto updateMovieDto, @MappingTarget MovieEntity movieEntity);
 }
