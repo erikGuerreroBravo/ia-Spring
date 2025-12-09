@@ -6,8 +6,10 @@ import mx.nube2024.ia.app.htsoft.domain.repository.MovieRepository;
 import mx.nube2024.ia.app.htsoft.persistence.crud.CrudMovieEntity;
 import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
 import mx.nube2024.ia.app.htsoft.persistence.mapper.MovieMapper;
+import org.mapstruct.MappingTarget;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 //tiene que ser un repository para inyectar las clases que se ocupan dentro de
@@ -49,6 +51,12 @@ public class MovieEntityRepository implements MovieRepository {
         {
             return null;
         }
-        return null;
+        movieEntity.setTitulo(updateMovieDto.title());
+        movieEntity.setFechaEstreno(updateMovieDto.releaseDate());
+        //transformamos a un bigdecimal
+        movieEntity.setClasificacion(BigDecimal.valueOf(updateMovieDto.rating()));
+        return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
+
+
     }
 }

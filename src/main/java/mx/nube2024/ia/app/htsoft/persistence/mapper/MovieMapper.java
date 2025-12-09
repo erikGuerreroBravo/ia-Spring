@@ -1,10 +1,12 @@
 package mx.nube2024.ia.app.htsoft.persistence.mapper;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
@@ -24,4 +26,5 @@ public interface MovieMapper {
     @InheritInverseConfiguration
     @Mapping(source = "genere", target = "genero", qualifiedByName = "GeneroToString")
     MovieEntity toEntity(MovieDto dto);
+    void updateEntityFromDto(UpdateMovieDto updateMovieDto, @MappingTarget MovieEntity movieEntity);
 }
