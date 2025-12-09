@@ -1,6 +1,7 @@
 package mx.nube2024.ia.app.htsoft.persistence;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.domain.repository.MovieRepository;
 import mx.nube2024.ia.app.htsoft.persistence.crud.CrudMovieEntity;
 import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
@@ -39,5 +40,15 @@ public class MovieEntityRepository implements MovieRepository {
         //asignamos el estado de forma manual.
         movieEntity.setEstado("D");
         return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
+    }
+
+    @Override
+    public MovieDto update(Long id,UpdateMovieDto updateMovieDto) {
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
+        if(movieEntity==null)
+        {
+            return null;
+        }
+        return null;
     }
 }
