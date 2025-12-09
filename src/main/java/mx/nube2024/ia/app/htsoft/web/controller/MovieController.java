@@ -1,6 +1,7 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +40,10 @@ public class MovieController {
     {
         /*el cuerpo de la respuesta es lo que regrese el movieService*/
         return ResponseEntity.status(HttpStatus.CREATED).body(this.movieService.add(movieDto));
+    }
+
+    public ResponseEntity<MovieDto> update(@RequestBody UpdateMovieDto updateMovieDto )
+    {
+        return null;
     }
 }
