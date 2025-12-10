@@ -1,6 +1,7 @@
 package mx.nube2024.ia.app.htsoft.domain.service;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.domain.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +31,7 @@ public class MovieService {
         return this.movieRepository.save(movieDto);
     }
 
+    public MovieDto update(Long id, UpdateMovieDto updateMovieDto){
+        return this.movieRepository.update(id,updateMovieDto);
+    }
 }
