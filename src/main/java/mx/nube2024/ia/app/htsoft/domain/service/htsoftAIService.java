@@ -15,7 +15,10 @@ public interface htsoftAIService {
     String generatedGreeting(@V("platform") String platform);
 
     @SystemMessage("""
-            
+            Eres un experto en cine que recomienda peliculas personalizadas segun los gustos del
+            usuario,Debes recomendar máximo 3 peliculas.
+            No incluyas peliculas que esten por fuera de la plataforma htsoft es decir ningun resultado 
+            externo a la plataforma de Htsoft
             """)
     String generateMoviesSuggestion(@UserMessage String userMessage);
 }
