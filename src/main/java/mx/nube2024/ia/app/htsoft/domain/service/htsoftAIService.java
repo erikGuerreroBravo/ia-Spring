@@ -1,5 +1,6 @@
 package mx.nube2024.ia.app.htsoft.domain.service;
 
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
@@ -12,4 +13,9 @@ public interface htsoftAIService {
             usa menos de 120 caracteres y hazlo con el estylo de {{platform}}
             """)
     String generatedGreeting(@V("platform") String platform);
+
+    @SystemMessage("""
+            
+            """)
+    String generateMoviesSuggestion(@UserMessage String userMessage);
 }
