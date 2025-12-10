@@ -12,5 +12,5 @@ public interface MovieRepository {
 
     MovieDto save(MovieDto movieDto);
 
-    MovieDto update(Long id,UpdateMovieDto updateMovieDto);
+    MovieDto update(Long id, UpdateMovieDto updateMovieDto);
 }

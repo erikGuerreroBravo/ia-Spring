@@ -51,12 +51,15 @@ public class MovieEntityRepository implements MovieRepository {
         {
             return null;
         }
-        movieEntity.setTitulo(updateMovieDto.title());
-        movieEntity.setFechaEstreno(updateMovieDto.releaseDate());
+        //movieEntity.setTitulo(updateMovieDto.title());
+        //movieEntity.setFechaEstreno(updateMovieDto.releaseDate());
         //transformamos a un bigdecimal
-        movieEntity.setClasificacion(BigDecimal.valueOf(updateMovieDto.rating()));
-        return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
+        //movieEntity.setClasificacion(BigDecimal.valueOf(updateMovieDto.rating()));
+        //aplicamos el mapeo de la entidad de forma automatizada para
+        //evitar el casteo de la entidad.
+        this.movieMapper.updateEntityFromDto(updateMovieDto, movieEntity);
 
+        return this.movieMapper.toDto(this.crudMovieEntity.save(movieEntity));
 
     }
 }
