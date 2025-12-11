@@ -2,6 +2,7 @@ package mx.nube2024.ia.app.htsoft.persistence;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
+import mx.nube2024.ia.app.htsoft.domain.exception.MovieAlreadyExistException;
 import mx.nube2024.ia.app.htsoft.domain.repository.MovieRepository;
 import mx.nube2024.ia.app.htsoft.persistence.crud.CrudMovieEntity;
 import mx.nube2024.ia.app.htsoft.persistence.entity.MovieEntity;
@@ -38,6 +39,12 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public MovieDto save(MovieDto movieDto) {
+
+        if(this.crudMovieEntity.findFirstByTitle(movieDto.title()) !=null)
+        {
+            throw  new MovieAlreadyExistException(movieDto.title());
+        }
+
         MovieEntity movieEntity = this.movieMapper.toEntity(movieDto);
         //asignamos el estado de forma manual.
         movieEntity.setEstado("D");
