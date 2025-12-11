@@ -1,8 +1,10 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.SuggestRequestDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
+import mx.nube2024.ia.app.htsoft.domain.service.htsoftAIService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +16,10 @@ import java.util.List;
 public class MovieController {
 
     private final MovieService movieService;
-
-    public MovieController(MovieService movieService) {
+    private final htsoftAIService aiService;
+    public MovieController(MovieService movieService, htsoftAIService aiService, htsoftAIService aiService1) {
         this.movieService = movieService;
+        this.aiService = aiService1;
     }
 
     @GetMapping
@@ -42,12 +45,18 @@ public class MovieController {
         return ResponseEntity.status(HttpStatus.CREATED).body(this.movieService.add(movieDto));
     }
 
+    @PostMapping("/suggest")
+    public ResponseEntity<String> generateMoviesSuggestion(@RequestBody SuggestRequestDto suggestRequestDto){
+
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<MovieDto> update(@PathVariable Long id, @RequestBody UpdateMovieDto updateMovieDto )
     {
         return ResponseEntity.ok(this.movieService.update(id,updateMovieDto));
     }
 
+    //el Void es en mayuscula porque es de una relacion objeto metodo
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id)
     {
