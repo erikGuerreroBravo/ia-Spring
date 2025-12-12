@@ -33,7 +33,7 @@ public class RestExceptionHandler
     @ExceptionHandler(Exception.class)
    public ResponseEntity<Error> handleException(Exception ex){
         Error error = new Error("Error Desconocido",ex.getMessage());
-        return ResponseEntity.badRequest().body(error);
+        return ResponseEntity.internalServerError().body(error);
     }
 
 }
