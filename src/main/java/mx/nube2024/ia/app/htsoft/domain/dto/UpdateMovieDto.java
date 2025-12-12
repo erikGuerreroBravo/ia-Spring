@@ -6,7 +6,7 @@ import java.time.LocalDate;
 /*esta es una clase inmutable record, es decir nunca va a cambiar*/
 public record UpdateMovieDto(
 
-        String title,
+        String titulo,
         LocalDate releaseDate,
         Double rating
         ) {

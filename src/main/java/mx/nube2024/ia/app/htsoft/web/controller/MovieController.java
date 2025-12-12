@@ -1,8 +1,10 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
+import mx.nube2024.ia.app.htsoft.domain.dto.SuggestRequestDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
 import mx.nube2024.ia.app.htsoft.domain.service.MovieService;
+import mx.nube2024.ia.app.htsoft.domain.service.htsoftAIService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +16,10 @@ import java.util.List;
 public class MovieController {
 
     private final MovieService movieService;
-
-    public MovieController(MovieService movieService) {
+    private final htsoftAIService aiService;
+    public MovieController(MovieService movieService, htsoftAIService aiService) {
         this.movieService = movieService;
+        this.aiService = aiService;
     }
 
     @GetMapping
@@ -40,6 +43,12 @@ public class MovieController {
     {
         /*el cuerpo de la respuesta es lo que regrese el movieService*/
         return ResponseEntity.status(HttpStatus.CREATED).body(this.movieService.add(movieDto));
+    }
+
+    @PostMapping("/suggest")
+    public ResponseEntity<String> generateMoviesSuggestion(@RequestBody SuggestRequestDto suggestRequestDto) {
+        return ResponseEntity.ok(this.aiService.generateMoviesSuggestion(suggestRequestDto.userPreferences()));
+
     }
 
     @PutMapping("/{id}")

@@ -13,7 +13,7 @@ import java.util.List;
 //los mapeadores siempre seran del tipo interface
 @Mapper(componentModel = "spring", uses = {GeneroMapper.class})
 public interface MovieMapper {
-    @Mapping(source="titulo", target="title")
+    @Mapping(source="titulo", target="titulo")
     @Mapping(source="duracion", target="duration")
     @Mapping(source="genero", target="genere", qualifiedByName = "StringToGenero")
     @Mapping(source="fechaEstreno", target="releaseDate")
@@ -26,7 +26,7 @@ public interface MovieMapper {
     @InheritInverseConfiguration
     @Mapping(source = "genere", target = "genero", qualifiedByName = "GeneroToString")
     MovieEntity toEntity(MovieDto dto);
-   @Mapping(target = "titulo" ,source = "title")
+   @Mapping(target = "titulo" ,source = "titulo")
    @Mapping(target="fechaEstreno", source = "releaseDate")
    @Mapping(target="clasificacion",source = "rating")
     void updateEntityFromDto(UpdateMovieDto updateMovieDto, @MappingTarget MovieEntity movieEntity);

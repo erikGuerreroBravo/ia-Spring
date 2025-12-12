@@ -40,9 +40,9 @@ public class MovieEntityRepository implements MovieRepository {
     @Override
     public MovieDto save(MovieDto movieDto) {
 
-        if(this.crudMovieEntity.findFirstByTitle(movieDto.title()) !=null)
+        if(this.crudMovieEntity.findFirstByTitulo(movieDto.titulo()) !=null)
         {
-            throw  new MovieAlreadyExistException(movieDto.title());
+            throw  new MovieAlreadyExistException(movieDto.titulo());
         }
 
         MovieEntity movieEntity = this.movieMapper.toEntity(movieDto);
