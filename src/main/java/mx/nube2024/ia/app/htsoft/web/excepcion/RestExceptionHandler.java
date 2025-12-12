@@ -22,7 +22,7 @@ public class RestExceptionHandler
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<List<Error>> handleExceptin(MethodArgumentNotValidException ex)
+    public ResponseEntity<List<Error>> handleException(MethodArgumentNotValidException ex)
     {
          List<Error> errors = new ArrayList<>();
          ex.getBindingResult().getFieldErrors().forEach(error->{
@@ -31,5 +31,6 @@ public class RestExceptionHandler
          return ResponseEntity.badRequest().body(errors);
     }
 
+   public ResponseEntity<Error> handleException(Exception ex){}
 
 }
