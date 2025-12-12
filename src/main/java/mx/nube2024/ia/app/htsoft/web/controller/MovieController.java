@@ -1,5 +1,6 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
+import jakarta.validation.Valid;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.SuggestRequestDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.UpdateMovieDto;
@@ -51,8 +52,9 @@ public class MovieController {
 
     }
 
+    //se emplea la notacion valid para validar una entidad.
     @PutMapping("/{id}")
-    public ResponseEntity<MovieDto> update(@PathVariable Long id, @RequestBody UpdateMovieDto updateMovieDto )
+    public ResponseEntity<MovieDto> update(@PathVariable Long id, @RequestBody @Valid UpdateMovieDto updateMovieDto )
     {
         return ResponseEntity.ok(this.movieService.update(id,updateMovieDto));
     }
