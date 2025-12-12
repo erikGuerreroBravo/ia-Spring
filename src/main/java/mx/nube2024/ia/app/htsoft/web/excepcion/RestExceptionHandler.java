@@ -15,7 +15,7 @@ import java.util.List;
 public class RestExceptionHandler
 {
     @ExceptionHandler(MovieAlreadyExistException.class)
-    public ResponseEntity<Error> handleException(Exception ex){
+    public ResponseEntity<Error> handleException(MovieAlreadyExistException ex){
     //creamos nuestro mensaje de error
         Error error= new Error("movie-already-existss",ex.getMessage());
         return ResponseEntity.badRequest().body(error);
@@ -30,7 +30,10 @@ public class RestExceptionHandler
          });
          return ResponseEntity.badRequest().body(errors);
     }
-
-   public ResponseEntity<Error> handleException(Exception ex){}
+    @ExceptionHandler(Exception.class)
+   public ResponseEntity<Error> handleException(Exception ex){
+        Error error = new Error("Error Desconocido",ex.getMessage());
+        return ResponseEntity.badRequest().body(error);
+    }
 
 }
