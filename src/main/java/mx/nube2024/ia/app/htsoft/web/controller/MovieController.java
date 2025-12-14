@@ -45,8 +45,7 @@ public class MovieController {
         /*el cuerpo de la respuesta es lo que regrese el movieService*/
         return ResponseEntity.status(HttpStatus.CREATED).body(this.movieService.add(movieDto));
     }
-
-    @PostMapping("/suggest")
+    //este metodo se encarga de aplicar la inteligencia artificial para promover peliculas, via IA
     public ResponseEntity<String> generateMoviesSuggestion(@RequestBody SuggestRequestDto suggestRequestDto) {
         return ResponseEntity.ok(this.aiService.generateMoviesSuggestion(suggestRequestDto.userPreferences()));
 
