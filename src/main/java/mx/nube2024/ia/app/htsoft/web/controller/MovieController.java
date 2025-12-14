@@ -1,5 +1,6 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
 import mx.nube2024.ia.app.htsoft.domain.dto.SuggestRequestDto;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
+@Tag(name = "Controlador de Peliculas",description = "EndPoint de Peliculas con inteligencia artificial")
 public class MovieController {
 
     private final MovieService movieService;
