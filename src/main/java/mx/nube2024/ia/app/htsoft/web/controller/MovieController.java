@@ -1,5 +1,6 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
@@ -33,6 +34,7 @@ public class MovieController {
         return ResponseEntity.ok(movies);
     }
     @GetMapping("/{id}")
+    @Operation(summary = "Endpoint que obtiene una pelicula por identificador.")
     public ResponseEntity<MovieDto> getById(@PathVariable Long id){
         MovieDto movieDto= this.movieService.getById(id);
         if(movieDto == null)
