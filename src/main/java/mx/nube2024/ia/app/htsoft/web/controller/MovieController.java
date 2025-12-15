@@ -1,6 +1,7 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -40,7 +41,7 @@ public class MovieController {
             description = "Esta endpoint se encarga de consultar todas las peliculas por identidficador.",
             responses = {
                     @ApiResponse(responseCode = "200",description = "Pelicula encontrada"),
-                    @ApiResponse(responseCode = "404", description = "Pelicula no encontrada")
+                    @ApiResponse(responseCode = "404", description = "Pelicula no encontrada", content = @Content)
             }
 
     )
