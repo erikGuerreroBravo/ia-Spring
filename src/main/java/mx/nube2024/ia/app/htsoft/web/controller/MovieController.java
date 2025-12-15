@@ -1,6 +1,7 @@
 package mx.nube2024.ia.app.htsoft.web.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import mx.nube2024.ia.app.htsoft.domain.dto.MovieDto;
@@ -34,7 +35,15 @@ public class MovieController {
         return ResponseEntity.ok(movies);
     }
     @GetMapping("/{id}")
-    @Operation(summary = "Endpoint que obtiene una pelicula por identificador.")
+    @Operation(
+            summary = "Endpoint que obtiene una pelicula por identificador.",
+            description = "Esta endpoint se encarga de consultar todas las peliculas por identidficador.",
+            responses = {
+                    @ApiResponse(responseCode = "200",description = "Pelicula encontrada"),
+                    @ApiResponse(responseCode = "404", description = "Pelicula no encontrada")
+            }
+
+    )
     public ResponseEntity<MovieDto> getById(@PathVariable Long id){
         MovieDto movieDto= this.movieService.getById(id);
         if(movieDto == null)
